@@ -26,30 +26,16 @@ FriendlyEats.prototype.getAllRestaurants = function(renderer) {
 };
 
 FriendlyEats.prototype.getDocumentsInQuery = function(query, renderer) {
- /*
     query.onSnapshot(function(snapshot){
-      if(!snapshot.size) return renderer.empty();
+    if(!snapshot.size) return renderer.empty();
       snapshot.docChanges().forEach(function(change){
          if(change.type === 'removed'){
              renderer.remove(change.doc);
          }else{
-             rederer.display(change.doc);
+             renderer.display(change.doc);
          }
       });
-  });
-  */
-    
-  query.onSnapshot(function(snapshot) {
-if (!snapshot.size) return renderer.empty(); // Display "There are no restaurants".
-
-snapshot.docChanges().forEach(function(change) {
-if (change.type === 'removed') {
-renderer.remove(change.doc);
-} else {
-renderer.display(change.doc);
-}
-});
-});  
+    });
 };
 
 FriendlyEats.prototype.getRestaurant = function(id) {
